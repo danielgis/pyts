@@ -1,0 +1,10 @@
+- Tags: TELEMATICA, PYTS, Corte de Energía
+- Summary (Abstracto): Una herramienta de script de Python para evaluar los cortes de energía.
+- Syntax:
+Actualice los campos de Explicación de diálogo, no los campos de Explicación de scripts.
+    - Phone_Reports : Ingrese informes telefónicos de cortes de energía. Generalmente en formato .csv.
+    - Social_Media_Reports: Ingrese informes de fuentes de redes sociales. Generalmente en formato .xls. Asegúrese de seleccionar la tabla dentro del archivo de Excel. 
+    - App_Report_Points: Ingrese informes de la aplicación de la compañía eléctrica. Generalmente en formato de entidad de puntos.
+    - Parcel_Points: Ingrese la ubicación de la capa de entidades de parcela que se utilizará para determinar el área de interrupción. Generalmente en formato de entidad de puntos. 
+    - Service_Areas: Ingrese la ubicación de la capa de área de servicio que se utilizará para determinar qué áreas de servicio deben recibir alertas. Generalmente en formato de entidad poligonal.
+    - Output_Geodatabase: Ingrese la ubicación de la geodatabase que se utilizará para contener las ubicaciones de los puntos de interrupción y el polígono del área de interrupción. La geodatabase debe crearse antes de usar la herramienta. 
