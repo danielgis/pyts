@@ -27,9 +27,12 @@ arcpy.env.overwriteOutput = True
 
 # Establecer parámetros para archivos de entrada/salida
 # Archivos de corte de entrada
-repTelFile = r"C:\Student\PYTS\Datos\ReporteTelefonico.csv"
-xyFile = r"C:\Student\PYTS\Datos\ReporteRedesSociales.xlsx\RedesSocialesXY$"
-ptFile = r"C:\Student\PYTS\Datos\ReporteApp.shp"
+# repTelFile = r"C:\Student\PYTS\Datos\ReporteTelefonico.csv"
+# xyFile = r"C:\Student\PYTS\Datos\ReporteRedesSociales.xlsx\RedesSocialesXY$"
+# ptFile = r"C:\Student\PYTS\Datos\ReporteApp.shp"
+repTelFile = arcpy.GetParameterAsText(0)
+xyFile = arcpy.GetParameterAsText(1)
+ptFile = arcpy.GetParameterAsText(2)
 parcelPoints = r"C:\Student\PYTS\Datos\Surquillo.gdb\ParcelasPts"
 serviceAreas = r"C:\Student\PYTS\Datos\Surquillo.gdb\AreaServicio"
 outputGDB = r"C:\Student\PYTS\Datos\Cortes.gdb"
@@ -157,8 +160,8 @@ except Exception:
     arcpy.AddError(e.args[0])
 
 # Agregar la salida al mapa
-aprx = arcpy.mp.ArcGISProject(r"C:\Student\PYTS\Proyectos\DensidadPoblacional\DensidadPoblacional.aprx")
-m = aprx.listMaps("HerramientaScript")[0]
+aprx = arcpy.mp.ArcGISProject("C:\student\pyts\Proyectos\MyProject4\DensidadPoblacional.aprx")
+m = aprx.listMaps("HerramientaScripts")[0]
 
 m.addDataFromPath(outConvexHull)
 m.addDataFromPath(Cortes)

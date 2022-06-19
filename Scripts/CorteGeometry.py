@@ -22,8 +22,25 @@ for row in csvReader:
     corteCoords.append(row)
 
 # Crear un objeto de geometría multipunto a partir de la lista de coordenadas
-
+ListaPuntos = []
+#--Recorremos la lista de Coordenadas de corte
+for itemCoordenadas in corteCoords:
+    #--creamos un objeto Punto en base a las coordenadas XY
+    oPunto = arcpy.Point(itemCoordenadas [1], itemCoordenadas[2])
+    #--Agregamos el Punto a la colección de objetos Puntos
+    ListaPuntos.append(oPunto)
+#--Creamos un Arreglo de Puntos en base a lista de Puntos
+ArrayPuntos = arcpy.Array(ListaPuntos)
+#--Creamos una geometría de tipo Multipunto
+cortePuntos = arcpy.Multipoint(ArrayPuntos)
+#--Imprimimos el mensaje en consola
+print("Se creo el objeto de geometría.")
 # Crear límite de interrupción utilizando convexHull (casco convexo)
+convexHull = cortePuntos.convexHull()
+#--Copiamos los nuevos Features y lo almacenamos en una variable
+arcpy.CopyFeatures_management(convexHull, outConvexHull)
+#--Imprimimos el mensaje en consola
+print("Limite de interrupción creado.")# Crear límite de interrupción utilizando convexHull (casco convexo)
 
 # Use Spatial Join (unión espacial) para identificar las areas afectadas
 arcpy.SpatialJoin_analysis(areaServicio, cortePuntos, outputJoin)

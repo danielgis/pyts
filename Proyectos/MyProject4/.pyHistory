@@ -9,3 +9,28 @@ desc.path
 desc.baseName
 desc.spatialReference
 desc.spatialReference.name
+arcpy.env.workspace = r"C:\Student\PYTS\Datos"
+gdbList = arcpy.ListWorkspaces("", "FileGDB")
+print(gdbList)
+arcpy.env.workspace = r"C:\Student\PYTS\Datos\Surquillo.gdb"
+fcList = arcpy.ListFeatureClasses()
+fcList2 = arcpy.ListFeatureClasses("", "Point")
+fieldList = arcpy.ListFields('ParcelasPts')
+print(fieldList[10].name)
+#--Configurar el Workspace arcpy.env.workspace = r"C:\pyts\leccion03.gdb" #--Creamos una lista de Campos de la entidad Centros de Salud oListFields =  arcpy.ListFields("CentrosDeSalud") #--Recorremos la lista de campos for oField in oListFields    #--Imprimimos en pantalla el nombre del campo     print(oField.name)
+#--Configurar el Workspace arcpy.env.workspace = r"C:\pyts\leccion03.gdb" #--Creamos una lista de Campos de la entidad Centros de Salud oListFields =  arcpy.ListFields("CentrosDeSalud") #--Recorremos la lista de campos for oField in oListFields:     #--Imprimimos en pantalla el nombre del campo     print(oField.name)
+oListFields
+arcpy.ListFields("CentrosDeSalud")
+arcpy.env.workspace
+aprx = arcpy.mp.ArcGISProject("C:\student\pyts\Proyectos\MyProject4\DensidadPoblacional.aprx") N
+aprx.listMaps()
+m=aprx.listMaps()
+for map in m:     print map.name
+for map in m:     print(map.name)
+aprx2 = arcpy.mp.ArcGISProject("C:\student\pyts\Proyectos\MyProject4\MyProject4.aprx")
+m2 = aprx2.listMaps()
+for map in m2:     print(map.name)
+for map in m:     print(map.name)
+aprx = arcpy.mp.ArcGISProject("C:\student\pyts\Proyectos\MyProject4\DensidadPoblacional.aprx")
+m=aprx.listMaps()
+for map in m:     print(map.name)
